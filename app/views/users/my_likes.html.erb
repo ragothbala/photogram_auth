@@ -1,0 +1,35 @@
+<div class="page-header">
+  <h3>User #<%= @user.id %></h3>
+  <h4>Username: <%= @user.username %></h4>
+  <h4>Email: <%= @user.email %></h4>
+
+
+</div>
+
+<% @likes.each do |like| %>
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Caption</dt>
+      <dd><%= like.photo.caption %></dd>
+
+      <dt>Image</dt>
+      <dd>      <img src="<%= like.photo.image %>">
+</dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/photos" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/photos/<%= like.photo.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_photo/<%= like.photo.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
+<% end %>
